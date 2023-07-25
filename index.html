@@ -1,25 +1,174 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Sudoku Shuffle</title>
+    <title>Regex Tutorial</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- <link rel="stylesheet" type="text/css" href="./assets/css/style.css" /> -->
   </head>
   <style>
-    main {
-      font-size: x-large;
-      display: grid;
-      grid-template-columns: repeat(4,auto);
-      justify-content: center;
+    * {
+      box-sizing: content-box;
     }
+
+    body {
+      color: black;
+      font-size: x-large;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    section {
+      margin:5rem;
+      display: grid;
+      grid-template-columns: repeat(10,auto);
+      justify-content: center;
+      justify-items: center;
+    }
+
+    section div {
+      border-radius: .3em;
+    }
+
+
+
+    .path {
+      grid-column: 1;
+      background-color: hsl(39, 93%, 65%)
+    }
+
+    .path.text {
+      color: #a97006
+    }
+
+    .query {
+      grid-column: 2 / 10;
+      background-color: hsl(222, 93%, 75%);
+    }
+
+    .q, .query1 {
+      background-color: hsl(222, 93%, 75%);
+    }
+
+    .query2 {
+      background-color: #9c84fb;
+    }
+
+    .query2.text {
+      color: #7453f9;
+    }
+
+    .q.text {
+      color: #3a74f9;
+    }
+
+    .and {
+      background-color: #fb84a8;
+    }
+
+    .and.text {
+      color: #f93a74;
+    }
+
+    .anch {
+      grid-column: 10;
+      background-color: hsl(290, 93%, 65%);
+    }
+
+    .separator {
+      grid-column: 1 / 11;
+      height: 1em;
+    }
+
+    .lookbehind {
+      background-color: hsl(84, 86%, 59%);
+    }
+
+    .lookbehind.text {
+      color: hsl(84, 86%, 28%)
+    }
+
+    .lookahead {
+      background-color: hsl(16, 93%, 65%);
+    }
+
+    .lookahead.text {
+      color: hsl(16, 93%, 54%);
+    }
+
+    .abs{
+      position: relative;
+      justify-self: stretch;
+    }
+
+    .abs>div {
+      position: absolute;
+      justify-self: center;
+    }
+
+    .text {
+      background-color: transparent;
+      font-size: large;
+    }
+
   </style>
   <body>
 
     <main>
+      <section>
+        <div class="path">https://gist.github.com</div> 
+        <div class="query">?key1=value1&key2=value2</div> 
+        <div class="anch">#scrolldown</div>
 
-    <div>https://gist.github.com</div> 
+        <div class="separator"></div>
 
+        <div class="path">https://gist.github.com</div> 
+        <div class="q">?</div>
+        <div class="key">key1</div>
+        <div class="eq">=</div>
+        <div class="val">value1</div>
+        <div class="and">&</div>
+        <div class="key">key2</div>
+        <div class="eq">=</div>
+        <div class="val">value2</div>
+        <div class="anch">#scrolldown</div>
+
+        <div class="separator"></div>
+
+        <div class="lookbehind" style="grid-column: 1 / 3;">
+          https://gist.github.com?</div> 
+        <div style="grid-column: 3 / 4">
+          key1</div>
+        <div class="lookahead" style="grid-column: 4 / 5">
+          =</div>
+        <div style="grid-column: 5 / 11">
+          value1&key2=value2#scrolldown</div>  
+
+        <div class="lookbehind text" style="grid-column: 1 / 3;">
+          lookbehind</div>
+        <div class="lookahead text" style="grid-column: 4 / 11; justify-self:start">
+          lookahead</div>
+
+
+        <div class="separator"></div>
+        
+        <div class="path">https://gist.github.com</div>
+        <div class="q">?</div>
+        <div class="query1" style="grid-column: 3 / 6">
+          key1=value1</div>
+        <div class="and" style="grid-column: 6 / 7" >&</div>
+        <div style="grid-column: 7 / 11">key2=value2#scrolldown</div>  
+        <div  class="path text" style="grid-row: span 2;">
+          any number of non-&OpenCurlyQuote;?&CloseCurlyQuote; characters 
+        </div>  
+        <div class="q text" style="grid-column: 2 / 6;">
+          one &OpenCurlyQuote;?&CloseCurlyQuote;
+        </div>
+        <div></div>
+        <div class="q text" style="grid-column: 6 / 11;">
+          at least one non-&OpenCurlyQuote;#&CloseCurlyQuote; character
+        </div>
+
+      </section>
     </main>
 
   </body>
