@@ -100,14 +100,21 @@
       justify-self: stretch;
     }
 
-    .abs>div {
+    .abs>span {
       position: absolute;
-      justify-self: center;
+      white-space: nowrap;
+      left: 50%;
+      transform: translateX(-50%) ;
+      
     }
 
     .text {
       background-color: transparent;
       font-size: large;
+    }
+
+    .regex {
+      font-family: 'Courier New', Courier, monospace;
     }
 
   </style>
@@ -153,21 +160,75 @@
         
         <div class="path">https://gist.github.com</div>
         <div class="q">?</div>
-        <div class="query1" style="grid-column: 3 / 6">
+        <div class="query2" style="grid-column: 3 / 6">
           key1=value1</div>
         <div class="and" style="grid-column: 6 / 7" >&</div>
         <div style="grid-column: 7 / 11">key2=value2#scrolldown</div>  
         <div  class="path text" style="grid-row: span 2;">
-          any number of non-&OpenCurlyQuote;?&CloseCurlyQuote; characters 
+          any number of non-&OpenCurlyQuote;?&CloseCurlyQuote; or non-&OpenCurlyQuote;#&CloseCurlyQuote; characters 
         </div>  
-        <div class="q text" style="grid-column: 2 / 6;">
-          one &OpenCurlyQuote;?&CloseCurlyQuote;
+        <div class="q text abs" style="grid-column: 2 / 3;">
+          <span>one &OpenCurlyQuote;?&CloseCurlyQuote;</span>
         </div>
-        <div></div>
-        <div class="q text" style="grid-column: 6 / 11;">
-          at least one non-&OpenCurlyQuote;#&CloseCurlyQuote; character
+        <div style="grid-column: 3 / 6"></div>
+        <div class="and text abs" style="grid-column: 6 / 7;">
+          <span>one &OpenCurlyQuote;&amp;&CloseCurlyQuote;</span>
+        </div>
+        <div class="abs query2 text" style="grid-column: 3 / 6">
+          <span>at least one non-&OpenCurlyQuote;#&CloseCurlyQuote; character</span>
         </div>
 
+        <div class="separator"></div>
+        
+        <div class="path">https://gist.github.com</div>
+        <div class="q">?</div>
+        <div  style="grid-column: 3 / 6">
+          key1=value1</div>
+        <div  style="grid-column: 6 / 7" >&</div>
+        <div style="grid-column: 7 / 11">key2=value2#scrolldown</div>  
+        <div  class="path text" style="grid-row: span 2;">
+          any number of non-&OpenCurlyQuote;?&CloseCurlyQuote; or non-&OpenCurlyQuote;#&CloseCurlyQuote; characters 
+        </div>  
+        <div class="q text abs" style="grid-column: 2 / 3;">
+          <span>one &OpenCurlyQuote;?&CloseCurlyQuote;</span>
+        </div>
+
+        <div class="separator"></div>
+        
+        <div class="path">https://gist.github.com</div>
+        <div class="q">?</div>
+        <div class="query2" style="grid-column: 3 / 6">
+          key1=value1</div>
+        <div class="and" style="grid-column: 6 / 7" >&</div>
+        <div style="grid-column: 7 / 11">key2=value2#scrolldown</div>  
+        <div  class="path text regex">
+          [^?#]*
+        </div>  
+        <div class="q text abs regex" style="grid-column: 2 / 3;">
+          <span>?</span>
+        </div>
+        <div class="abs query2 text regex" style="grid-column: 3 / 6">
+          <span>[^#]+</span>
+        </div>
+        <div class="and text abs regex" style="grid-column: 6 / 7;">
+          <span>&amp;</span>
+        </div>
+        
+
+        <div class="separator"></div>
+        
+        <div class="path">https://gist.github.com</div>
+        <div class="q">?</div>
+        <div  style="grid-column: 3 / 6">
+          key1=value1</div>
+        <div  style="grid-column: 6 / 7" >&</div>
+        <div style="grid-column: 7 / 11">key2=value2#scrolldown</div>  
+        <div  class="path text regex" style="grid-row: span 2;">
+          [^?#]*
+        </div>  
+        <div class="q text abs regex" style="grid-column: 2 / 3;">
+          <span>?</span>
+        </div>
       </section>
     </main>
 
